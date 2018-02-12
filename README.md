@@ -5,10 +5,10 @@ ImagetyperzAPI (client) is a super easy to use bypass captcha API wrapper for im
 
 ## Installation
 
-		npm install imagetyperz-api-client
-    or
-    
-    	git clone https://github.com/imagetyperz-api/imagetyperz-api-javascript
+    npm install imagetyperz-api-client
+or
+
+    git clone https://github.com/imagetyperz-api/imagetyperz-api-javascript
 
 ## How to use?
 
