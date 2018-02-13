@@ -93,7 +93,7 @@ imagetyperzapi.set_affiliate_id('123456789');
 **- submit_recaptcha(page_url, sitekey, proxy, proxy_type)**
 
 The recaptcha submission method accepts two optional arguments, proxy and proxy_type.
-This are used in case you want the recaptcha to be sol      ved using a proxy. The format for **proxy** 
+This are used in case you want the recaptcha to be solved using a proxy. The format for **proxy** 
 argument is *IP:PORT* (eg. 12.34.56.78:1234 or user:pass@12.34.56.78:1234 [proxy with auth]) and currently 
 supported proxy_type is HTTP (only)
 ``` javascript
