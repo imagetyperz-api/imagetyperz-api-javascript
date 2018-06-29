@@ -5,11 +5,11 @@ const ACCESS_KEY = 'access_token_here';
 var recaptcha_params = {};
 recaptcha_params.page_url = 'example.com';
 recaptcha_params.sitekey = 'sitekey_here';
-recaptcha_params.type = 3;                       // optional, defaults to 1
-recaptcha_params.v3_min_score = 0.1;             // min score to target when solving v3 - optional
-recaptcha_params.v3_action = 'homepage';         // action to use when solving v3 - optional
-recaptcha_params.proxy = '126.45.34.53:123';     // optional
-recaptcha_params.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0';   // optional
+// recaptcha_params.type = 3;                       // optional, defaults to 1
+// recaptcha_params.v3_min_score = 0.1;             // min score to target when solving v3 - optional
+// recaptcha_params.v3_action = 'homepage';         // action to use when solving v3 - optional
+// recaptcha_params.proxy = '126.45.34.53:123';     // optional
+// recaptcha_params.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0';   // optional
 
 var recaptcha_id = undefined;
 
