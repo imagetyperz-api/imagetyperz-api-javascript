@@ -1,10 +1,17 @@
 // check dashboard for accesskey
-const ACCESS_KEY = 'YOUR_ACCESS_KEY';
+const ACCESS_KEY = 'access_token_here';
 
-// recaptcha details
-// ------------------
-const PAGE_URL = 'YOUR_PAGE_URL';
-const SITEKEY = 'YOUR_SITE_KEY';
+// recaptcha parameters
+var recaptcha_params = {};
+recaptcha_params.page_url = 'example.com';
+recaptcha_params.sitekey = 'sitekey_here';
+recaptcha_params.type = 3;                       // optional, defaults to 1
+recaptcha_params.v3_min_score = 0.1;             // min score to target when solving v3 - optional
+recaptcha_params.v3_action = 'homepage';         // action to use when solving v3 - optional
+recaptcha_params.proxy = '126.45.34.53:123';     // optional
+recaptcha_params.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0';   // optional
+
+var recaptcha_id = undefined;
 
 function example() {
     // clear log box
@@ -21,7 +28,7 @@ function example() {
     // first, get account balance
     // --------------------------
     imagetyperzapi.account_balance().then(function (balance) {
-        log('Balance: '+ balance);   // print balance gathered
+        log('Balance: ' + balance);   // print balance gathered
         // solve image captcha
         // ------------------------------------------------
         log('Waiting for captcha to be solved ...');
@@ -34,22 +41,26 @@ function example() {
         log('Captcha text: ' + data);    // print captcha text and submit recaptcha
         // submit recaptcha details
         // --------------------------------------
-        return imagetyperzapi.submit_recaptcha(PAGE_URL, SITEKEY);
+        return imagetyperzapi.submit_recaptcha(recaptcha_params);
     }).then(function (id) {
+        recaptcha_id = id;
+    }).then(function () {
         // we have the recaptcha ID here
         // ------------------------------
-        log('Waiting for recaptcha #' + id + ' to be solved ...');
+        log('Waiting for recaptcha #' + recaptcha_id + ' to be solved ...');
         // get the g-response using the ID
-        // -------------------------------
-        return imagetyperzapi.retrieve_recaptcha(id);
+        return imagetyperzapi.retrieve_recaptcha(recaptcha_id);
     }).then(function (gresponse) {
         // at this point, we have the g-response
         // --------------------------------------
         log('Recaptcha response: ' + gresponse);
-    }).catch(function (err) {
-        var e = err.message || err;
-        log(e);
-    }).then(function(){
+    })/*.then(function () {
+        return imagetyperzapi.was_proxy_used(recaptcha_id); // check if proxy was used
+    }).then(function (was_used) {
+        console.log(was_used);
+    })*/.catch(function (err) {
+        log(err.message || err);
+    }).then(function () {
         log('Example finished !');
     });
 }

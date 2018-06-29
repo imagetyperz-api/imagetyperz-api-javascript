@@ -1,6 +1,6 @@
 {
   "name": "imagetyperz-api-client",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "ImagetyperzAPI (client) is a super easy to use bypass captcha API wrapper for imagetyperz.com captcha service",
   "main": "lib/imagetyperz-api-client.js",
   "scripts": {
