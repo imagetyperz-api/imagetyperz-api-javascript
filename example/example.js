@@ -11,6 +11,14 @@ recaptcha_params.sitekey = 'sitekey_here';
 // recaptcha_params.proxy = '126.45.34.53:123';     // optional
 // recaptcha_params.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0';   // optional
 
+// geetest parameters
+var geetest_params = {};
+geetest_params.domain = 'example.com';
+geetest_params.challenge = 'challenge goes here';
+geetest_params.gt = 'gt goes here';
+//geetest_params.proxy = '126.45.34.53:123';     // optional
+//geetest_params.user_agent = 'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/60.0';   // optional
+
 var recaptcha_id = undefined;
 
 function example() {
@@ -28,7 +36,7 @@ function example() {
     // first, get account balance
     // --------------------------
     imagetyperzapi.account_balance().then(function (balance) {
-        log('Balance: ' + balance);   // print balance gathered
+        log('Balance: $' + balance);   // print balance gathered
         // solve image captcha
         // ------------------------------------------------
         log('Waiting for captcha to be solved ...');
@@ -54,11 +62,20 @@ function example() {
         // at this point, we have the g-response
         // --------------------------------------
         log('Recaptcha response: ' + gresponse);
-    })/*.then(function () {
-        return imagetyperzapi.was_proxy_used(recaptcha_id); // check if proxy was used
-    }).then(function (was_used) {
-        console.log(was_used);
-    })*/.catch(function (err) {
+
+        // submit geetest captcha
+        // ----------------------
+    //     return imagetyperzapi.submit_geetest(geetest_params);
+    // }).then(function (geetest_id){
+    //     log('Waiting for geetest #' + geetest_id + ' to be solved ...');
+    //     return imagetyperzapi.retrieve_geetest(geetest_id);
+    // }).then(function (geetest_response){
+    //     log('Geetest response: ' +  JSON.stringify(geetest_response));
+        })/*.then(function () {
+            return imagetyperzapi.was_proxy_used(recaptcha_id); // check if proxy was used
+        }).then(function (was_used) {
+            console.log(was_used);
+        })*/.catch(function (err) {
         log(err.message || err);
     }).then(function () {
         log('Example finished !');
