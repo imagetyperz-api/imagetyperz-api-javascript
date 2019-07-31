@@ -46,13 +46,23 @@ imagetyperzapi.account_balance().then(function (balance) {
 ### Submit image captcha
 
 ``` javascript
-imagetyperzapi.solve_captcha('/9j/4AgABAQAAAQABAAD//gATNT.....').then(function (response) {
+var image_params = {};
+// below params are optional
+image_params.iscase = 'true';         // case sensitive captcha
+image_params.isphrase = 'true';       // text contains at least one space (phrase)
+image_params.ismath = 'true';         // instructs worker that a math captcha has to be solved
+image_params.alphanumeric = 2;      // 1 - digits only, 2 - letters only
+image_params.minlength = 2;           // captcha text length (minimum)
+image_params.maxlength = 6;           // captcha text length (maximum)
+
+// submit b64encoded image and optional parameters
+imagetyperzapi.solve_captcha('/9j/4AgABAQAAAQABAAD//gATNT.....', image_params).then(function (response) {
     console.log('Captcha text:', response);    
 })
 ```
 **Works with both b64 encoded string and URL**
 ``` javascript
-imagetyperzapi.solve_captcha('http://abc.com/your_captcha.jpg').then(function (response) {
+imagetyperzapi.solve_captcha('http://abc.com/your_captcha.jpg', image_params).then(function (response) {
     console.log('Captcha text:', response);    
 })
 ```
@@ -134,6 +144,14 @@ imagetyperzapi.retrieve_geetest(geetest_id)
 ```
 
 Response will be an (JSON) object that looks like this: `{'challenge': '...', 'validate': '...', 'seccode': '...'}`
+
+## Capy
+
+This captcha requires a `page_url` and `sitekey` in order to be solved by our system.
+Currently, in order to solve a capy captcha, you'll have to use the reCAPTCHA methods and only add `--capy` at the end of the `page_url`.
+Having that up, our system will pick it up as capy. Once workers have solved it, you'll have to use the reCAPTCHA retrieve endpoint, to get the response.
+
+**E.g** Original page url - `https://mysite.com`, capy page url `https://mysite.com--capy`
 
 ## Other methods/variables
 
