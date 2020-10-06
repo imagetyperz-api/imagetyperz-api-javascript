@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagetyperz API example - javascript client version</title>
+    <style>
+        textarea{
+            width: 100%;
+        }
+        button{
+            width: 100%;
+            height: 60px;
+            font-size: 20px;
+        }
+        select, input {
+            width: 100%;
+        }
+    </style>
+    <script>
+        // log what's happening to UI and console
+        function log(txt) {
+            document.getElementById('log').value += txt + '\n';
+            console.log(txt);
+        }
+        // run captcha type example based on input selection
+        function run () {
+            const cType = document.getElementById('captcha-type').value
+            if (cType === 'image') image()
+            else if (cType === 'recaptcha') recaptcha()
+            else if (cType === 'hcaptcha') hcaptcha()
+            else if (cType === 'geetest') geetest()
+            else if (cType === 'capy') capy()
+            else if (cType === 'tiktok') tiktok()
+            else log(`Unknown captcha type: ${cType}`)
+        }
+    </script>
+</head>
+<body>
+<!-- Element for logging data -->
+<textarea id='log' rows=10 autofocus></textarea>
+<input type="text" id="token" placeholder="Access token from https://imagetyperz.com" value=""/>
+<select id="captcha-type">
+    <option value="image">image (examples/image.js)</option>
+    <option value="recaptcha">reCAPTCHA (examples/recaptcha.js)</option>
+    <option value="hcaptcha">hCaptcha (examples/hcaptcha.js)</option>
+    <option value="geetest">Geetest (examples/geetest.js)</option>
+    <option value="capy">Capy (examples/capy.js)</option>
+    <option value="tiktok">Tiktok (examples/tiktok.js)</option>
+</select>
+<button onclick="run()">Run example</button>
+<!-- Load jQuery (dependency) -->
+<script src="../vendor/jquery.js"></script>
+<!-- Load the library -->
+<script src="../lib/imagetyperz-api-client.js"></script>
+<!-- Examples (for each captcha type) -->
+<script src="image.js"></script>
+<script src="recaptcha.js"></script>
+<script src="geetest.js"></script>
+<script src="capy.js"></script>
+<script src="hcaptcha.js"></script>
+<script src="tiktok.js"></script>
+</body>
+</html>
