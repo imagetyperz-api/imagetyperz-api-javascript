@@ -31,6 +31,7 @@
             else if (cType === 'geetest') geetest()
             else if (cType === 'capy') capy()
             else if (cType === 'tiktok') tiktok()
+            else if (cType === 'funcaptcha') funcaptcha()
             else log(`Unknown captcha type: ${cType}`)
         }
     </script>
@@ -46,6 +47,7 @@
     <option value="geetest">Geetest (examples/geetest.js)</option>
     <option value="capy">Capy (examples/capy.js)</option>
     <option value="tiktok">Tiktok (examples/tiktok.js)</option>
+    <option value="funcaptcha">FunCaptcha (examples/funcaptcha.js)</option>
 </select>
 <button onclick="run()">Run example</button>
 <!-- Load jQuery (dependency) -->
@@ -59,5 +61,6 @@
 <script src="capy.js"></script>
 <script src="hcaptcha.js"></script>
 <script src="tiktok.js"></script>
+<script src="funcaptcha.js"></script>
 </body>
 </html>
