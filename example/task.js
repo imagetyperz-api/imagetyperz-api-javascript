@@ -18,6 +18,10 @@ async function task() {
         const captchaID = await imagetyperzapi.submit_task(task_params)
         // solve captcha
         log('Waiting for captcha to be solved ...');
+
+        // # send pushVariable - update of variable while task is running (e.g 2FA code)
+        // await imagetyperzapi.task_push_variables(captchaID, {twofactor_code: "32948"})
+
         const response = await imagetyperzapi.retrieve_response(captchaID)
         log(`Response: ${JSON.stringify(response)}`)
     } catch (err) {
