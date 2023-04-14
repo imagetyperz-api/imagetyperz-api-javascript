@@ -2,7 +2,12 @@
 var hcaptcha_params = {};
 hcaptcha_params.page_url = 'https://your-site.com';
 hcaptcha_params.sitekey = '8c7062c7-cae6-4e12-96fb-303fbec7fe4f';
+
 // hcaptcha_params.invisible = '1';     // if captcha is invisible -  optional
+
+// domain used in loading of hcaptcha interface, default: hcaptcha.com - optional
+// hcaptcha_params.domain = 'hcaptcha.com'
+
 // extra parameters, useful for enterprise
 // submit userAgent from requests too, when this is used
 // hcaptcha_params.HcaptchaEnterprise = {

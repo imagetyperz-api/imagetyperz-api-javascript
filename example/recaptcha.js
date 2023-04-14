@@ -13,6 +13,7 @@ recaptcha_params.sitekey = '7LrGJmcUABBAALFtIb_FxC0LXm_GwOLyJAfbbUCL';
 //
 // recaptcha_params.type = 1;                       // optional, defaults to 1
 //
+// recaptcha_params.domain = 'www.google.com'       // used in loading reCAPTCHA interface, default: www.google.com (alternative: recaptcha.net) - optional
 // recaptcha_params.v3_min_score = 0.1;             // min score to target when solving v3 - optional
 // recaptcha_params.v3_action = 'homepage';         // action to use when solving v3 - optional
 // recaptcha_params.proxy = '126.45.34.53:123';     // optional

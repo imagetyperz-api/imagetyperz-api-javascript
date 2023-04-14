@@ -33,6 +33,7 @@
             else if (cType === 'capy') capy()
             else if (cType === 'tiktok') tiktok()
             else if (cType === 'funcaptcha') funcaptcha()
+            else if (cType === 'turnstile') turnstile()
             else if (cType === 'task') task()
             else log(`Unknown captcha type: ${cType}`)
         }
@@ -51,6 +52,7 @@
     <option value="capy">Capy (examples/capy.js)</option>
     <option value="tiktok">Tiktok (examples/tiktok.js)</option>
     <option value="funcaptcha">FunCaptcha (examples/funcaptcha.js)</option>
+    <option value="turnstile">Turnstile (Cloudflare) (examples/turnstile.js)</option>
     <option value="task">Task (examples/task.js)</option>
 </select>
 <button onclick="run()">Run example</button>
@@ -67,6 +69,7 @@
 <script src="hcaptcha.js"></script>
 <script src="tiktok.js"></script>
 <script src="funcaptcha.js"></script>
+<script src="turnstile.js"></script>
 <script src="task.js"></script>
 </body>
 </html>
